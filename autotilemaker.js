@@ -1,6 +1,6 @@
 // This function will return an an image of an autotile set
 
-function autoTileMaker(tileWidth, tileHeight, tileColor, borderColor, blankColor) {
+function autoTileMaker(tileWidth, tileHeight, tileColor, borderColor, blankColor = "black") {
   let tileColumns = 8;
   let tileRows = 6;
   let width = tileWidth * tileColumns;
@@ -387,7 +387,7 @@ function drawAutoTileMap(map, image) {
   let ctx = canvas.getContext("2d")
   ctx.width = canvas.width * window.devicePixelRatio
   ctx.height = canvas.height * window.devicePixelRatio
-  let imageNumTiles=8
+  let imageNumTiles = 8
   for(let row = 0; row < map.length; row++){
     for(let col = 0; col < map[row].length; col++) {
       let tile = map[ row ][ col ];
