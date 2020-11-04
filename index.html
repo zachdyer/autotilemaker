@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title>AutoTileMaker JS</title>
+      <link rel="stylesheet" href="bootstrap.css" type="text/css" media="all" />
+    </head>
+    <body>
+      <div class="container">
+        <h1>AutoTileMaker JS</h1>
+        <h2>Introduction</h2>
+        <p>AutoTileMaker is a function that allows you to create an auto-tile 
+        image that can be used to make 2d tile maps with borders.</p>
+        <h2>How to use</h2>
+        <p>To create a new autotile image use the function <pre>autoTileMaker</pre> and use 
+        the parameters to customize your tileset image.</p>
+        <h3>Parameters</h3>
+        <p>The first and second parameter are the tile width and height. 
+        This is the size of the tile on the output graphic. 
+        The third and fourth paramter are the base color and the border color 
+        of the tile.</p>
+        <h3>Example Usage</h3>
+        <pre>let test = autoTileMaker(64, 64, "green", "blue", "black")</pre>
+        <p>In this example this will generate a tile map like the one below. 
+        This tile map image was actually generated with the tool.</p>
+        <div id="demo-auto-tile"></div>
+        <h2>How to generate a tile map</h2>
+        <p>To create a tile map for the generated map tile image you can use can
+        2d array of true and false or 1's and 0's. Here is an example 2d array 
+        for a tile map</p>
+        <pre>
+let map = [
+  [0,0,0,0,0,0,0,0],
+  [0,0,1,1,1,0,1,0],
+  [0,1,0,1,1,1,0,0],
+  [0,0,1,1,1,0,0,0],
+  [0,0,1,1,1,1,0,0],
+  [0,0,0,0,0,0,0,0]
+]
+        </pre>
+        <p>This 2d tile map can now be converted into an autotile map using the 
+        autotile function. Here is an example of how you would do that.</p>
+        <pre>let automap = autotile(map)</pre>
+        <p>The 2d map array will be updated with the new values that will 
+        work with the generated auto tile map image.</p>
+        <pre>
+[
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 5, 37, 26, 0, 47, 0],
+  [0, 47, 0, 36, 31, 2, 0, 0],
+  [0, 0, 34, 45, 28, 0, 0, 0],
+  [0, 0, 7, 12, 10, 2, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0]
+]
+        </pre>
+        <div id="demo-auto-tile-map"></div>
+      </div>
+      
+      <script type="text/javascript" charset="utf-8" src="autotilemaker.js"></script>
+      <script type="text/javascript" charset="utf-8" src="node-autotile.js"></script>
+      <script type="text/javascript" charset="utf-8" src="demo.js"></script>
+    </body>
+</html>
